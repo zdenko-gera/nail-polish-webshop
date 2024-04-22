@@ -1,7 +1,8 @@
 <!--<app-main></app-main>
 <app-stores></app-stores>
 <app-contact></app-contact>-->
-<app-menu></app-menu>
-
+<app-menu (selectedPage)="changePage($event)" [currentPage]="page"></app-menu>
 
 <router-outlet></router-outlet>
+
+<app-footer></app-footer>

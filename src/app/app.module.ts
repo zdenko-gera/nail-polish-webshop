@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 //import { ContactComponent } from './pages/contact/contact.component';
 //import { StoresComponent } from './pages/stores/stores.component';
 import { MenuComponent } from './shared/menu/menu.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { MenuComponent } from './shared/menu/menu.component';
     //MainComponent,
     //ContactComponent,
     //StoresComponent,
-    MenuComponent
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()

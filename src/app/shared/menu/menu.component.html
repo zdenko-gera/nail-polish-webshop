@@ -1,4 +1,4 @@
-<select name="" id="">
+<select [(ngModel)]="currentPage" (change)="menuSwitch()">
     <option value="main">Főoldal</option>
     <option value="stores">Üzleteink</option>
     <option value="contact">Kapcsolat</option>

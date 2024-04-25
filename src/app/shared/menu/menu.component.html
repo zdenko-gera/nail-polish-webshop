@@ -1,5 +1,21 @@
-<select [(ngModel)]="currentPage" (change)="menuSwitch()">
+<div id="header-wrapper">
+<header>
+    <h1 id="header-title" [routerLink]="'/main'">Shiny Nails</h1>
+<select [(ngModel)]="currentPage" (change)="menuSwitch()" id="menubar-select">
     <option value="main">Főoldal</option>
     <option value="stores">Üzleteink</option>
     <option value="contact">Kapcsolat</option>
 </select>
+<div id="menubar">
+    <button [routerLink]="'/main'" class="menu-btn">KEZDŐLAP</button>
+    <button [routerLink]="'/login'" class="menu-btn">BEJELENTKEZÉS</button>
+    <button [routerLink]="'/signup'" class="menu-btn">REGISZTRÁCIÓ</button>
+    <button [routerLink]="'/stores'"class="menu-btn">ÜZLETEINK</button>
+    <button [routerLink]="'/contact'"class="menu-btn">KAPCSOLAT</button>
+    <button [routerLink]="'/cart'"class="menu-btn" id="menu-cart-btn"><img src="../../../assets/static/cart-icon.png" alt="cart-icon" id="cart-btn-icon">KOSÁR (3)</button>
+
+</div>
+</header>
+<div id="divider-linear"></div>
+</div>
+

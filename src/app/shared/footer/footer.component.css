@@ -6,7 +6,10 @@ footer {
     width: 100%;
     height: fit-content;
     padding: 2dvh 0 2dvh 0;
-    position: absolute;
+    position: static;
+    left: 0;
     bottom: 0;
-    background-color: rgb(255, 130, 210);
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgb(216, 112, 147);
+    box-shadow: grey 0px 0px 0.1dvw;
 }

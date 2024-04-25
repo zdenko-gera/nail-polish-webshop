@@ -8,15 +8,21 @@ import { filter } from 'rxjs';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  title: string = 'mukorom-webshop';
   page = '';
+  routes: Array<string> = [];
 
   constructor(private router: Router) {  }
 
   ngOnInit() {
+    this.routes = this.router.config.map(conf => conf.path) as string[];
+
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((evts: any) => {
-      this.page = (evts.urlAfterRedirects as string).split('/')[1] as string;
-    })
+      const currentPage = (evts.urlAfterRedirects as string).split('/')[1] as string;
+
+      if(this.routes.includes(currentPage)) {
+        this.page = currentPage;
+      }
+    });
   }
 
   changePage(selectedPage: string) {

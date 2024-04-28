@@ -1,4 +1,4 @@
-# MukoromWebshop
+# Műköröm webshop
 
 Angular keretrendszer használatával készített műköröm webshop.
 

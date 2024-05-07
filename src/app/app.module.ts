@@ -22,6 +22,8 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage'
 import { AngularFireModule } from '@angular/fire/compat';
+import { AddProductComponent } from './pages/add-product/add-product.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     //StoresComponent,
     MenuComponent,
     FooterComponent,
+    //AddProductComponent,
     //CartComponent
   ],
   imports: [
@@ -42,6 +45,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    MatCardModule,
     FlexLayoutModule,
     MatListModule,
     AngularFireModule.initializeApp({"projectId":"mukorom-webshop","appId":"1:824035145873:web:1c23c41a71f0c66418a730","storageBucket":"mukorom-webshop.appspot.com","apiKey":"AIzaSyD6KJ1XXqUatjx925jr0PEH0cnjW1E37us","authDomain":"mukorom-webshop.firebaseapp.com","messagingSenderId":"824035145873"}),

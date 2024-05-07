@@ -1,0 +1,12 @@
+<div class="login-wrapper">
+    <div class="login-container">
+        <h1>Termék feltöltése</h1>
+        <form action=""  id="signup-form">
+            <mat-form-field><mat-label for="title">Termék neve: </mat-label><input matInput type="text" name="title" formControlName="title"></mat-form-field>
+            <mat-form-field><mat-label for="details">Részletek: </mat-label><textarea matInput  name="details" formControlName="details"></textarea></mat-form-field>
+            <mat-form-field><mat-label for="price">Ár: </mat-label><input matInput type="number" name="price" formControlName="price"></mat-form-field>
+            <!--<label for="price">Kép: </label><input type="file" name="productImage" formControlName="productImage">-->
+            <button mat-raised-button type="submit" color="primary">FELTÖLTÉS</button>
+        </form>
+    </div>
+</div>

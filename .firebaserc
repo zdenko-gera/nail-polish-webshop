@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mukorom-webshop": {
+      "hosting": {
+        "mukorom-webshop": [
+          "mukorom-webshop"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mukorom-webshop"
+  }
+}

@@ -3,7 +3,7 @@
 <app-contact></app-contact>-->
 <mat-sidenav-container>
     <mat-sidenav #sidenav>
-        <app-menu (onCloseSidenav)="closeSidenav($event, sidenav)"></app-menu>
+        <app-menu (onCloseSidenav)="closeSidenav($event, sidenav)" [loggedInUser]="loggedInUser" (onLogout)="logout($event)"></app-menu>
     </mat-sidenav>
     <mat-sidenav-content>
         <mat-toolbar color="primary">
@@ -13,10 +13,11 @@
             <h1 id="header-title" [routerLink]="'/main'">Shiny Nails</h1>
             <div id="menubar" fxFlex fxLayout fxLayoutAlign="flex-end">
                 <button [routerLink]="'/main'" class="menu-btn" fxHide.sm fxHide.xs>KEZDŐLAP</button>
-                <button [routerLink]="'/login'" class="menu-btn" fxHide.sm fxHide.xs>BEJELENTKEZÉS</button>
                 <button [routerLink]="'/signup'" class="menu-btn" fxHide.sm fxHide.xs>REGISZTRÁCIÓ</button>
                 <button [routerLink]="'/stores'"class="menu-btn" fxHide.sm fxHide.xs>ÜZLETEINK</button>
                 <button [routerLink]="'/contact'"class="menu-btn" fxHide.sm fxHide.xs>KAPCSOLAT</button>
+                <button [routerLink]="'/login'" class="menu-btn" fxHide.sm fxHide.xs *ngIf="!(loggedInUser)">BEJELENTKEZÉS</button>
+                <button [routerLink]="'/login'" class="menu-btn" fxHide.sm fxHide.xs (click)="logout()" *ngIf="(loggedInUser)">KIJELENTKEZÉS</button>
                 <button [routerLink]="'/cart'"class="menu-btn" id="menu-cart-btn"><img src="../../../assets/static/cart-icon.png" alt="cart-icon" id="cart-btn-icon"><span fxHide.sm fxHide.xs>KOSÁR</span> (3)</button>
             </div>
         </mat-toolbar>

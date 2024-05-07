@@ -16,9 +16,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatListModule } from '@angular/material/list'
-
-
+import { MatListModule } from '@angular/material/list';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage'
+import { AngularFireModule } from '@angular/fire/compat';
 
 
 @NgModule({
@@ -41,6 +44,11 @@ import { MatListModule } from '@angular/material/list'
     MatIconModule,
     FlexLayoutModule,
     MatListModule,
+    AngularFireModule.initializeApp({"projectId":"mukorom-webshop","appId":"1:824035145873:web:1c23c41a71f0c66418a730","storageBucket":"mukorom-webshop.appspot.com","apiKey":"AIzaSyD6KJ1XXqUatjx925jr0PEH0cnjW1E37us","authDomain":"mukorom-webshop.firebaseapp.com","messagingSenderId":"824035145873"}),
+    //provideFirebaseApp(() => initializeApp({"projectId":"mukorom-webshop","appId":"1:824035145873:web:1c23c41a71f0c66418a730","storageBucket":"mukorom-webshop.appspot.com","apiKey":"AIzaSyD6KJ1XXqUatjx925jr0PEH0cnjW1E37us","authDomain":"mukorom-webshop.firebaseapp.com","messagingSenderId":"824035145873"})),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
   ],
   providers: [
     provideClientHydration(),

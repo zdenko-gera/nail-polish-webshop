@@ -1,8 +1,27 @@
 <!--<app-main></app-main>
 <app-stores></app-stores>
 <app-contact></app-contact>-->
-<app-menu (selectedPage)="changePage($event)" [currentPage]="page"></app-menu>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav>
+        <app-menu (onCloseSidenav)="closeSidenav($event, sidenav)"></app-menu>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button mat-icon-button fxHide.gt-sm (click)="onToggleSidenav(sidenav)">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <h1 id="header-title" [routerLink]="'/main'">Shiny Nails</h1>
+            <div id="menubar" fxFlex fxLayout fxLayoutAlign="flex-end">
+                <button [routerLink]="'/main'" class="menu-btn" fxHide.sm fxHide.xs>KEZDŐLAP</button>
+                <button [routerLink]="'/login'" class="menu-btn" fxHide.sm fxHide.xs>BEJELENTKEZÉS</button>
+                <button [routerLink]="'/signup'" class="menu-btn" fxHide.sm fxHide.xs>REGISZTRÁCIÓ</button>
+                <button [routerLink]="'/stores'"class="menu-btn" fxHide.sm fxHide.xs>ÜZLETEINK</button>
+                <button [routerLink]="'/contact'"class="menu-btn" fxHide.sm fxHide.xs>KAPCSOLAT</button>
+                <button [routerLink]="'/cart'"class="menu-btn" id="menu-cart-btn"><img src="../../../assets/static/cart-icon.png" alt="cart-icon" id="cart-btn-icon"><span fxHide.sm fxHide.xs>KOSÁR</span> (3)</button>
+            </div>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
+    </mat-sidenav-content>
 
-<router-outlet></router-outlet>
-
-<app-footer></app-footer>
+</mat-sidenav-container>

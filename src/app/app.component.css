@@ -1,0 +1,57 @@
+
+app-menu {
+    width: 100%;
+}
+
+#menubar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content;
+}
+
+.menu-btn {
+    border:  0px;
+    padding: 0.5dvw;
+    background-color: transparent;
+    color: palevioletred;
+}
+
+.menu-btn:hover {
+    cursor: pointer;
+    border: 0px;
+}
+
+#menu-cart-btn {
+    border-radius: 0.3dvw;
+    background-color: rgb(135, 0, 195);
+    color: white;
+    padding: 0.7dvh;
+    padding-inline: 2dvw;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3dvw;
+}
+
+#cart-btn-icon {
+    width: 4dvh;
+}
+
+#header-title {
+    color: rgb(216, 112, 147);
+    font-weight: 200;
+    margin: 0px;
+}
+
+#header-title:hover {
+    cursor: pointer;
+}
+
+mat-sidenav {
+    width: fit-content;
+    font-size: small;
+}

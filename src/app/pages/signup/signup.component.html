@@ -1,7 +1,9 @@
+<button (click)="goBack()" class="back-btn"><img src="../../../assets/static/arrow-back.svg" alt="vissza-nyil" class="back-arrow-img">VISSZA</button>
+
 <div class="login-wrapper">
     <div class="login-container">
         <h1>Regisztráció</h1>
-        <form action="" [formGroup]="SignupForm" id="signup-form">
+        <form action="" [formGroup]="SignupForm" id="signup-form" (ngSubmit)="onSubmit()">
             <input type="email" placeholder="Email" formControlName="email">
             <input type="password" placeholder="Jelszó" formControlName="password">
             <input type="password" placeholder="Jelszó mégegyszer" formControlName="rePassword">

@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -14,11 +15,19 @@ export class SignupComponent implements OnInit {
     rePassword: new FormControl(''),
   });
 
-  constructor() {
+  constructor(private location: Location) {
 
   }
 
   ngOnInit(): void {
     
+  }
+
+  onSubmit() {
+    console.log(this.SignupForm.value);
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

@@ -4,7 +4,7 @@
 
 #text-over-opening-image {
     position: absolute;
-    top: 8dvh;
+    top: 15dvh;
     left: 12dvw;
     font-weight: 200;
     font-size: 4dvw;
@@ -14,6 +14,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     height: fit-content;
+    line-height: 8dvh;
 }
 
 h2 {

@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
     }*/
     if(this.email.value !== null && this.password.value !== null) {
     this.authService.login(this.email.value, this.password.value).then(cred => {
-      console.log(cred);
+      //console.log(cred);
+      this.router.navigateByUrl('/main');
     }).catch(error => {
       console.error(error);
     })

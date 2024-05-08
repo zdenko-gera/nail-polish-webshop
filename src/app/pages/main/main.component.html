@@ -4,7 +4,7 @@
 </div>
 <h2><mat-icon>category</mat-icon> TERMÉKEINK</h2>
 <div class="products-wrapper">
-    <mat-card *ngFor="let product of ProductObject" class="product-container">
+    <mat-card *ngFor="let product of this.ProductObject" class="product-container">
         <form [formGroup]="getFormGroup(product)" (ngSubmit)="onSubmit()">
           <img src="../../../assets/static/products/{{ product.imagePath }}" alt="" class="product-image">
           <mat-card-header>

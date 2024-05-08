@@ -21,6 +21,6 @@ export class MenuComponent {
     if(logout === true) {
       this.onLogout.emit(logout);
     }
-  
+    console.log(this.loggedInUser);
   }
 }

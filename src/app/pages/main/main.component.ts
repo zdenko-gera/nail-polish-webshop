@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ItemInCart } from '../../shared/models/ItemInCart';
 import { Product } from '../../shared/models/Product';
 import { ProductService } from '../../shared/services/product.service';
 import { CartService } from '../../shared/services/cart.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { AuthService } from '../../shared/services/auth.service';
+import { log } from 'console';
 
 
 @Component({
@@ -13,15 +15,15 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
   styleUrl: './main.component.css'
 })
 export class MainComponent implements OnInit { 
+  @Input() loggedInUser?: firebase.default.User | null;
   ProductObject?: Array<Product>;
-  loggedInUser?: firebase.default.User | null;
   AddToCartForm = new FormGroup({
     productID: new FormControl(''),
     quantity: new FormControl(''),
     userID: new FormControl(''),
   });
 
-  constructor(private router: Router,private productService: ProductService, private cartService: CartService, private formBuilder: FormBuilder) {}
+  constructor(private router: Router,private productService: ProductService, private cartService: CartService, private formBuilder: FormBuilder, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.productService.getAll().subscribe((data: Array<Product>) => {

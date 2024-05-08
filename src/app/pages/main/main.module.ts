@@ -5,6 +5,8 @@ import { MainComponent } from './main.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import {MatCard, MatCardModule} from '@angular/material/card';
+import { MatDivider, MatDividerModule } from '@angular/material/divider';
 
 
 @NgModule({
@@ -17,6 +19,10 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatCardModule,
+    MatCard,
+    MatDivider,
+    MatDividerModule,
   ]
 })
 export class MainModule { }

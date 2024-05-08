@@ -19,6 +19,8 @@ export class ProductService {
     return this.afs.collection<Product>(this.collectionName).add(product);
   }
 
+
+  //read() = getAll() --- a javítónak
   getAll() {
     return this.afs.collection<Product>(this.collectionName).valueChanges();
 

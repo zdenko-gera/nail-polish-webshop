@@ -23,13 +23,8 @@ import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
-    //MainComponent,
-    //ContactComponent,
-    //StoresComponent,
     MenuComponent,
     FooterComponent,
-    //AddProductComponent,
-    //CartComponent
   ],
   imports: [
     BrowserModule,

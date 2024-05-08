@@ -4,7 +4,7 @@ import { Product } from '../../shared/models/Product';
 import { ProductService } from '../../shared/services/product.service';
 import { CartService } from '../../shared/services/cart.service';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -14,13 +14,14 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class MainComponent implements OnInit { 
   ProductObject?: Array<Product>;
+  loggedInUser?: firebase.default.User | null;
   AddToCartForm = new FormGroup({
     productID: new FormControl(''),
     quantity: new FormControl(''),
     userID: new FormControl(''),
   });
 
-  constructor(private router: Router,private productService: ProductService, private cartService: CartService) {}
+  constructor(private router: Router,private productService: ProductService, private cartService: CartService, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.productService.getAll().subscribe((data: Array<Product>) => {
@@ -33,7 +34,7 @@ export class MainComponent implements OnInit {
     console.log(this.AddToCartForm.value);
     const productID = this.AddToCartForm.get('productID')?.value || '';
     const quantity = this.AddToCartForm.get('quantity')?.value || '1';
-    const userID = this.AddToCartForm.get('userID')?.value || '';
+    const userID = this.loggedInUser?.uid || '';
 
 
       const itemInCart: ItemInCart = {
@@ -42,14 +43,28 @@ export class MainComponent implements OnInit {
         quantity: quantity,
         userID: userID,
       }
+
+        if(this.loggedInUser !== null && this.loggedInUser !== undefined) {
         //INSERT megvalósítása
-        this.cartService.addToCart(itemInCart).then(_ => {
-          console.log('Termék hozzáadva az kosaradhoz.');
-          this.router.navigateByUrl('/main');
-          
-        }).catch(error => {
-          console.error(error);
-        })
+          this.cartService.addToCart(itemInCart).then(_ => {
+            console.log('Termék hozzáadva az kosaradhoz.');
+            this.router.navigateByUrl('/main');
+            
+          }).catch(error => {
+            console.error(error);
+          })
+        } else {
+          console.error('Jelentkezz be a funkcióhoz!')
+          this.router.navigateByUrl('/login');
+        }
+    }
+
+    getFormGroup(product: Product): FormGroup {
+      return this.formBuilder.group({
+        userID: 'jrKN3fTkl0T1odHu2A0EkFi3A0B2',
+        productID: product.id,
+        quantity: 1
+      });
     }
 
 }

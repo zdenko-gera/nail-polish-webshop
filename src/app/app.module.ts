@@ -1,15 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//import { MainComponent } from './pages/main/main.component';
-//import { ContactComponent } from './pages/contact/contact.component';
-//import { StoresComponent } from './pages/stores/stores.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { CartComponent } from './pages/cart/cart.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -22,7 +17,6 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage'
 import { AngularFireModule } from '@angular/fire/compat';
-import { AddProductComponent } from './pages/add-product/add-product.component';
 import { MatCardModule } from '@angular/material/card';
 
 

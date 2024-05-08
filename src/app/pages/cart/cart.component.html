@@ -1,25 +1,14 @@
 <button (click)="goBack()" class="back-btn"><img src="../../../assets/static/arrow-back.svg" alt="vissza-nyil" class="back-arrow-img">VISSZA</button>
 <h1>Kosarad tartalma:</h1>
 <div class="content-wrapper">
-    <div class="cart-item">
+    <form class="cart-item" *ngFor="let itemInCart of itemsInCart" [formGroup]="RemoveFromCartForm" (ngSubmit)="onSubmit()">
         <img src="../../../assets/static/products/np_002.png" alt="termek" class="product-in-cart-image">
-        <p class="product-in-cart-title">Gél lakk</p>
-        <p class="product-in-cart-quantity">Mennyiség: 2 db</p>
+        <p class="product-in-cart-title">{{ itemInCart.productID }}</p>
+        <p class="product-in-cart-quantity">Mennyiség: {{ itemInCart.quantity }} db</p>
         <p class="product-in-cart-price">10.000 Ft</p>
-
-    </div>
-    <div class="cart-item">
-        <img src="../../../assets/static/products/np_001.png" alt="termek" class="product-in-cart-image">
-        <p class="product-in-cart-title">Gél lakk</p>
-        <p class="product-in-cart-quantity">Mennyiség: 1 db</p>
-        <p class="product-in-cart-price">8.000 Ft</p>
-    </div>
-    <div class="cart-item">
-        <img src="../../../assets/static/products/np_004.png" alt="termek" class="product-in-cart-image">
-        <p class="product-in-cart-title">Gél lakk</p>
-        <p class="product-in-cart-quantity">Mennyiség: 1 db</p>
-        <p class="product-in-cart-price">9.990 Ft</p>
-    </div>
+        <input type="hidden" formControlName="productID" value="{{ itemInCart.productID }}">
+        <button mat-button type="submit"><mat-icon>close</mat-icon></button>
+    </form>
     <div id="cart-sum-line"></div>
     <p id="sum">ÖSSZESEN: 27.990 Ft</p>
 </div>

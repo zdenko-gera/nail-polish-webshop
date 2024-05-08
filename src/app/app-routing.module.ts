@@ -31,7 +31,8 @@ const routes: Routes = [
   },
   { 
     path: 'add-product', 
-    loadChildren: () => import('./pages/add-product/add-product.module').then(m => m.AddProductModule)
+    loadChildren: () => import('./pages/add-product/add-product.module').then(m => m.AddProductModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'not-found',

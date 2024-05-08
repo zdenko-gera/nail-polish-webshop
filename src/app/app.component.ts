@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   page = '';
   routes: Array<string> = [];
   loggedInUser?: firebase.default.User | null;
+  cntOfItemsInCart: number = 0;
 
   constructor(private router: Router, private AuthService: AuthService) {  }
 

@@ -22,7 +22,7 @@
         <mat-icon>home</mat-icon>
         <span> KEZDŐLAP</span>
     </a>
-    <a mat-list-item routerLink="/add-product" (click)="close()">
+    <a mat-list-item routerLink="/add-product" (click)="close()" *ngIf="(loggedInUser)">
         <mat-icon>post_add</mat-icon>
         <span> TERMÉK HOZZÁADÁSA</span>
     </a>

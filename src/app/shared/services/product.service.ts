@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Product } from '../models/Product';
+import { Image  } from '../models/Image';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,7 @@ export class ProductService {
   //CRUD műveletek
 
   create(product: Product) {
-    return this.afs.collection<Product>(this.collectionName).doc(product.id).set(product);
+    return this.afs.collection<Product>(this.collectionName).add(product);
   }
 
   getAll() {
@@ -28,5 +30,9 @@ export class ProductService {
 
   delete() {
 
+  }
+
+  loadImage(imageUrl: string) {
+    return this.afs.collection<Image>(this.collectionName).valueChanges();
   }
 }

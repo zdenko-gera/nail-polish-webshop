@@ -21,6 +21,7 @@ app-menu {
 .menu-btn:hover {
     cursor: pointer;
     border: 0px;
+    color: white;
 }
 
 #menu-cart-btn {
@@ -37,8 +38,8 @@ app-menu {
     margin-left: 3dvw;
 }
 
-#cart-btn-icon {
-    width: 4dvh;
+#menu-cart-btn:hover {
+    background-color: rgb(166, 62, 210);
 }
 
 #header-title {

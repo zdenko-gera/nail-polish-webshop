@@ -12,6 +12,7 @@
             <mat-card-subtitle>{{ product.details }}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
+            <h3>{{ product.price }} Ft</h3>
           <input type="hidden" formControlName="userID" [value]="loggedInUser?.uid">
           <input type="hidden" formControlName="productID" [value]="product.id">
           <input type="hidden" formControlName="quantity" value="1">

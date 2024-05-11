@@ -1,13 +1,9 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ItemInCart } from '../../shared/models/ItemInCart';
-import { Product } from '../../shared/models/Product';
 import { CartService } from '../../shared/services/cart.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
-import { combineLatest } from 'rxjs';
-import { map } from 'rxjs';
 
 
 

@@ -22,8 +22,7 @@ export class ProductService {
 
   //read() = getAll() --- a javítónak
   getAll() {
-    return this.afs.collection<Product>(this.collectionName).valueChanges();
-
+    return this.afs.collection<Product>(this.collectionName, ref => ref.orderBy('price', 'asc')).valueChanges();
   }
 
   update() {

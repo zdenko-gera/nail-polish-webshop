@@ -5,6 +5,7 @@ import { filter } from 'rxjs';
 import { AuthService } from './shared/services/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { HostListener } from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -32,7 +33,7 @@ export class AppComponent implements OnInit {
     this.scrollPercentage = (scrollOffset / windowHeight) * 100;
   }
 
-  constructor(private router: Router, private AuthService: AuthService, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router, private AuthService: AuthService, private activatedRoute: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.routes = this.router.config.map(conf => conf.path) as string[];
@@ -45,7 +46,7 @@ export class AppComponent implements OnInit {
       }
     });
     this.AuthService.isUserLoggedIn().subscribe(user => {
-      console.log(user);
+      //console.log(user);
       this.loggedInUser= user;
       localStorage.setItem('user', JSON.stringify(this.loggedInUser));
     }, error => {
@@ -69,11 +70,15 @@ export class AppComponent implements OnInit {
 
   logout(_?: boolean) {
     this.AuthService.logout().then(() => {
+      this.router.navigateByUrl('/main');
+      this.openSnackBar('Kijelentkeztél!', 'Oké!');
       console.log('Sikeresen kijelentkeztél.');
     }).catch(error => {
       console.error(error);
     });
   }
 
-
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
 }

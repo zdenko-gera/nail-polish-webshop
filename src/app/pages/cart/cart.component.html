@@ -2,7 +2,7 @@
 <h1>Kosarad tartalma:</h1>
 <div class="content-wrapper">
     <div *ngIf="itemsInCart?.length !== 0">
-        <form class="cart-item" *ngFor="let itemInCart of itemsInCart" [formGroup]="RemoveFromCartForm" (ngSubmit)="onSubmit()">
+        <form class="cart-item" *ngFor="let itemInCart of itemsInCart" [formGroup]="RemoveFromCartForm">
             <img src="../../../assets/static/products/np_002.png" alt="termek" class="product-in-cart-image">
             <p class="product-in-cart-title">Termék neve</p>
             <p class="product-in-cart-quantity">Mennyiség: {{ itemInCart.quantity }} db</p>

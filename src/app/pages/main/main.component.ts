@@ -6,7 +6,6 @@ import { CartService } from '../../shared/services/cart.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
-import { log } from 'console';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 

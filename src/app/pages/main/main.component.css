@@ -46,7 +46,8 @@ h2 {
     /*box-shadow: grey 0px 0px 0.2dvh;*/
     border: 1px solid rgba(186, 186, 186, 1);
     margin-bottom: 2dvh;
-    min-width: fit-content;
+    max-width: 18dvw;
+    text-wrap: wrap;
 }
 
 .product-container:hover {
@@ -76,3 +77,18 @@ h3 {
     font-weight: 100;
     font-size: x-large;
 }
+
+@media only screen and (max-width: 600px) {
+    .product-image {
+      width: 14dvw;
+    }
+
+    .product-container {
+        min-width: 36dvw;
+        height: 50dvh;
+    }
+
+    .product-container * {
+        font-size: medium;
+    }
+  }

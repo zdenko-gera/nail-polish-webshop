@@ -3,23 +3,30 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ItemInCart } from '../models/ItemInCart';
 import { Observable } from 'rxjs';
 import { map, switchMap, toArray } from 'rxjs/operators'; // Importáljuk a switchMap operátort
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-
+  loggedInUser?: firebase.default.User | null;
   collectionName= 'ItemsInCart';
 
 
-  constructor(private afs: AngularFirestore) {}
+  constructor(private afs: AngularFirestore, private authService: AuthService) {}
   
   addToCart(itemInCart: ItemInCart) {
     return this.afs.collection<ItemInCart>(this.collectionName).add(itemInCart);
   }
 
   getAll() {
-    return this.afs.collection<ItemInCart>(this.collectionName).valueChanges();
+    //return this.afs.collection<ItemInCart[]>(this.collectionName).valueChanges();
+    this.loggedInUser = JSON.parse(localStorage.getItem('user') || '{}'); 
+
+    return this.afs.collection<ItemInCart>(
+      this.collectionName,
+      ref => ref.where('userID', '==', this.loggedInUser?.uid)
+    ).valueChanges();
   }
 
   /*getProductsInCart(): Observable<any[]> {

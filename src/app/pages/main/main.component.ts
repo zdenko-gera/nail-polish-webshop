@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { log } from 'console';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 
 @Component({
@@ -15,7 +17,7 @@ import { log } from 'console';
   styleUrl: './main.component.css'
 })
 export class MainComponent implements OnInit { 
-  @Input() loggedInUser?: firebase.default.User | null;
+  loggedInUser?: firebase.default.User | null;
   ProductObject?: Array<Product>;
   AddToCartForm = new FormGroup({
     productID: new FormControl(''),
@@ -23,13 +25,21 @@ export class MainComponent implements OnInit {
     userID: new FormControl(''),
   });
 
-  constructor(private router: Router,private productService: ProductService, private cartService: CartService, private formBuilder: FormBuilder, private authService: AuthService) {}
+  constructor(private router: Router,private productService: ProductService, private cartService: CartService, private formBuilder: FormBuilder, private authService: AuthService, private _snackBar: MatSnackBar) {
+    
+  }
 
   ngOnInit(): void {
     this.productService.getAll().subscribe((data: Array<Product>) => {
-      //console.log(data);
+      //console.log(this.loggedInUser);
       this.ProductObject = data;
-    })
+    });
+
+    this.authService.isUserLoggedIn().subscribe( user => {
+      this.loggedInUser = user;
+    }, error => {
+      console.error(error);
+    });
   }
 
   onSubmit() {
@@ -46,18 +56,19 @@ export class MainComponent implements OnInit {
         userID: userID,
       }
 
-        if(this.loggedInUser !== null && this.loggedInUser !== undefined) {
+        if(this.loggedInUser !== undefined && this.loggedInUser !== null) {
         //INSERT megvalósítása
           this.cartService.addToCart(itemInCart).then(_ => {
             console.log('Termék hozzáadva az kosaradhoz.');
             this.router.navigateByUrl('/main');
-            
+            this.openSnackBar('Termék hozzáadva a kosaradhoz!', 'OK');            
           }).catch(error => {
             console.error(error);
           })
         } else {
           console.error('Jelentkezz be a funkcióhoz!')
           this.router.navigateByUrl('/login');
+          this.openSnackBar('Jelentkezz be a funkcióhoz!', 'OK');            
         }
     }
 
@@ -67,6 +78,10 @@ export class MainComponent implements OnInit {
         productID: product.id,
         quantity: 1
       });
+    }
+
+    openSnackBar(message: string, action: string) {
+      this._snackBar.open(message, action);
     }
 
 }

@@ -1,12 +1,20 @@
 h1 {
     font-weight: 100;
+    margin-top: 10dvh;
 }
 
-h5 {
+h2 {
     margin-left: 10dvw;
 }
 
 iframe {
     margin-left: 10dvw;
     margin-bottom: 10dvh;
+    max-width: 50dvw;
+    max-height: 40dvw;
+}
+
+h1, p {
+    margin-left: 15dvw;
+    margin-bottom: 0dvh;
 }

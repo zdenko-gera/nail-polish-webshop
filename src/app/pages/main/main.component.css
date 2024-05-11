@@ -44,7 +44,7 @@ h2 {
     background-color: white;
     border-radius: 1dvh;
     /*box-shadow: grey 0px 0px 0.2dvh;*/
-    border: 1px solid rgb(186, 186, 186);
+    border: 1px solid rgba(186, 186, 186, 1);
     margin-bottom: 2dvh;
     min-width: fit-content;
 }

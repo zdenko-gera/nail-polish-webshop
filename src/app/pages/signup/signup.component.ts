@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { User } from '../../shared/models/User';
 import { UserService } from '../../shared/services/user.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-signup',
@@ -11,14 +12,13 @@ import { UserService } from '../../shared/services/user.service';
   styleUrl: './signup.component.css'
 })
 export class SignupComponent implements OnInit {
-
   SignupForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
     rePassword: new FormControl(''),
   });
 
-  constructor(private location: Location, private authService: AuthService, private userService: UserService) {
+  constructor(private location: Location, private authService: AuthService, private userService: UserService, private _snackBar: MatSnackBar) {
 
   }
 
@@ -43,6 +43,7 @@ export class SignupComponent implements OnInit {
         //INSERT megvalósítása
         this.userService.create(user).then(_ => {
           console.log('Felhasználó hozzáadva az adatbázishoz.');
+          this.openSnackBar('Sikeresen regisztráltál!', 'Bezárás')
         }).catch(error => {
           console.error(error);
         })
@@ -54,5 +55,9 @@ export class SignupComponent implements OnInit {
 
   goBack() {
     this.location.back();
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
 }

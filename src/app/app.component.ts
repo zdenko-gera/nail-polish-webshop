@@ -3,6 +3,10 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { AuthService } from './shared/services/auth.service';
+import { ActivatedRoute } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { User } from './shared/models/User';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +18,9 @@ export class AppComponent implements OnInit {
   routes: Array<string> = [];
   loggedInUser?: firebase.default.User | null;
   cntOfItemsInCart: number = 0;
+  userFromDB: any;
 
-  constructor(private router: Router, private AuthService: AuthService) {  }
+  constructor(private router: Router, private AuthService: AuthService, private activatedRoute: ActivatedRoute, private afs: AngularFirestore) { }
 
   ngOnInit(): void {
     this.routes = this.router.config.map(conf => conf.path) as string[];
@@ -27,6 +32,13 @@ export class AppComponent implements OnInit {
         this.page = currentPage;
       }
     });
+    this.AuthService.isUserLoggedIn().subscribe(user => {
+      console.log(user);
+      this.loggedInUser= user;
+      localStorage.setItem('user', JSON.stringify(this.loggedInUser));
+    }, error => {
+      console.error(error);
+    });    
   }
 
   changePage(selectedPage: string) {

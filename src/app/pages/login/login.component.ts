@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   email = new FormControl('');
   password = new FormControl('');
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {}
 
@@ -26,9 +27,14 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.email.value, this.password.value).then(cred => {
       //console.log(cred);
       this.router.navigateByUrl('/main');
+      this.openSnackBar('Üdvözlünk!', 'Bezárás')
     }).catch(error => {
       console.error(error);
     })
     }
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
 }

@@ -4,9 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { AuthService } from './shared/services/auth.service';
 import { ActivatedRoute } from '@angular/router';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { User } from './shared/models/User';
-import { Observable } from 'rxjs';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +17,22 @@ export class AppComponent implements OnInit {
   loggedInUser?: firebase.default.User | null;
   cntOfItemsInCart: number = 0;
   userFromDB: any;
+  scrollPercentage: number = 0;
 
-  constructor(private router: Router, private AuthService: AuthService, private activatedRoute: ActivatedRoute, private afs: AngularFirestore) { }
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollOffset =
+      window.scrollY ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+    const windowHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    this.scrollPercentage = (scrollOffset / windowHeight) * 100;
+  }
+
+  constructor(private router: Router, private AuthService: AuthService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.routes = this.router.config.map(conf => conf.path) as string[];
@@ -38,7 +50,7 @@ export class AppComponent implements OnInit {
       localStorage.setItem('user', JSON.stringify(this.loggedInUser));
     }, error => {
       console.error(error);
-    });    
+    });
   }
 
   changePage(selectedPage: string) {
@@ -62,4 +74,6 @@ export class AppComponent implements OnInit {
       console.error(error);
     });
   }
+
+
 }

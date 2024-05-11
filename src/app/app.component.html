@@ -19,9 +19,11 @@
                 <button [routerLink]="'/login'" class="menu-btn" fxHide.sm fxHide.xs *ngIf="!(loggedInUser)">BEJELENTKEZÉS</button>
                 <button [routerLink]="'/signup'" class="menu-btn" fxHide.sm fxHide.xs *ngIf="!(loggedInUser)">REGISZTRÁCIÓ</button>
                 <button [routerLink]="'/login'" class="menu-btn" fxHide.sm fxHide.xs (click)="logout()" *ngIf="(loggedInUser)">KIJELENTKEZÉS</button>
-                <button [routerLink]="'/cart'"class="menu-btn" id="menu-cart-btn" mat-button><mat-icon>shopping_cart</mat-icon><span fxHide.sm fxHide.xs>KOSÁR</span><!-- ({{ cntOfItemsInCart }})--></button>
+                <button [routerLink]="'/cart'"class="menu-btn" id="menu-cart-btn" mat-button matTooltip="Kosaram tartalma"><mat-icon>shopping_cart</mat-icon><span fxHide.sm fxHide.xs>KOSÁR</span><!-- ({{ cntOfItemsInCart }})--></button>
             </div>
         </mat-toolbar>
+        <mat-progress-bar mode="determinate" value="{{scrollPercentage}}"></mat-progress-bar>
+
         <router-outlet></router-outlet>
         <app-footer></app-footer>
     </mat-sidenav-content>

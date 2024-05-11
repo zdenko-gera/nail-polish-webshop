@@ -18,6 +18,9 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage'
 import { AngularFireModule } from '@angular/fire/compat';
 import { MatCardModule } from '@angular/material/card';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 
 @NgModule({
@@ -42,6 +45,8 @@ import { MatCardModule } from '@angular/material/card';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
+    MatProgressBarModule,
+    MatTooltipModule,
   ],
   providers: [
     provideClientHydration(),

@@ -4,6 +4,10 @@ import { ItemInCart } from '../../shared/models/ItemInCart';
 import { Product } from '../../shared/models/Product';
 import { CartService } from '../../shared/services/cart.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+import { combineLatest } from 'rxjs';
+import { map } from 'rxjs';
 
 
 
@@ -13,14 +17,15 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrl: './cart.component.css'
 })
 export class CartComponent implements OnInit {
-  itemsInCart?: Array<ItemInCart>;
-  productsInCart?: Array<Product>;
+  itemsInCart?: Array<ItemInCart> = [];
+  //summedPrice: number = 0;
+  //all?: Observable<{ items: ItemInCart[], products: Product[] }>;
+  //productsInCart?: Array<Product>;
   RemoveFromCartForm = new FormGroup({
     productID: new FormControl(''),
   });
 
-  constructor(private location: Location, private cartService: CartService) {
-
+  constructor(private location: Location, private cartService: CartService, private afs: AngularFirestore) {
   }
 
   goBack() {
@@ -31,7 +36,8 @@ export class CartComponent implements OnInit {
     this.cartService.getAll().subscribe((data: Array<ItemInCart>) => {
       console.log(data);
       this.itemsInCart = data;
-    })
+      //console.log(this.itemsInCart.length);
+    });
   }
 
   onSubmit() {

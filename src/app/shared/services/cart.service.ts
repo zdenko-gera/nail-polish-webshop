@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ItemInCart } from '../models/ItemInCart';
-import { Observable } from 'rxjs';
-import { map, switchMap, toArray } from 'rxjs/operators'; // Importáljuk a switchMap operátort
 import { AuthService } from './auth.service';
+
 
 @Injectable({
   providedIn: 'root'

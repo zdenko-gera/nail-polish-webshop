@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -23,6 +23,7 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatIconModule,
     MatIcon,
+    MatSlideToggleModule,
   ]
 })
 export class SignupModule { }

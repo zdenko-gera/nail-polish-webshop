@@ -51,6 +51,7 @@ h1 {
     margin-right: 2.5dvw;
     font-size: large;
     font-weight: 100;
+    margin-top: 5dvh;
 }
 
 #to-payment-btn {
@@ -63,4 +64,8 @@ h1 {
     padding: 0.8dvw 1.5dvw 0.8dvw 1.5dvw;
     font-weight: 400;
     cursor: pointer;
+}
+
+.mat-divider {
+    margin-top: 3dvh;
 }

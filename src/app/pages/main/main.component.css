@@ -80,12 +80,13 @@ h3 {
 
 @media only screen and (max-width: 600px) {
     .product-image {
-      width: 14dvw;
+      width: 32dvw;
     }
 
     .product-container {
         min-width: 36dvw;
-        height: 50dvh;
+        height: 60dvh;
+        max-height: fit-content;
     }
 
     .product-container * {

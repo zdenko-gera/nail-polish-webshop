@@ -1,9 +1,10 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ItemInCart } from '../../shared/models/ItemInCart';
 import { CartService } from '../../shared/services/cart.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Subscription } from 'rxjs';
 
 
 
@@ -12,11 +13,12 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
   itemsInCart?: Array<ItemInCart> = [];
   //summedPrice: number = 0;
   //all?: Observable<{ items: ItemInCart[], products: Product[] }>;
   //productsInCart?: Array<Product>;
+  itemsInCartSub?: Subscription;
   RemoveFromCartForm = new FormGroup({
     productID: new FormControl(''),
   });
@@ -29,7 +31,7 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cartService.getAll().subscribe((data: Array<ItemInCart>) => {
+    this.itemsInCartSub = this.cartService.getAll().subscribe((data: Array<ItemInCart>) => {
       console.log(data);
       this.itemsInCart = data;
       //console.log(this.itemsInCart.length);
@@ -46,5 +48,11 @@ export class CartComponent implements OnInit {
         }).catch(error => {
           console.error(error);
         })
+  }
+
+  ngOnDestroy(): void {
+    if(this.itemsInCartSub) {
+      this.itemsInCartSub.unsubscribe();
+    }
   }
 }

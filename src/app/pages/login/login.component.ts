@@ -9,13 +9,11 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   email = new FormControl('');
   password = new FormControl('');
 
   constructor(private router: Router, private authService: AuthService, private _snackBar: MatSnackBar) { }
-
-  ngOnInit(): void {}
 
   login() {
     /*if (this.email.value === 'test@gmail.com' && this.password.value === 'testpw') {

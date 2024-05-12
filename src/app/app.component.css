@@ -15,22 +15,23 @@ app-menu {
     border:  0px;
     padding: 0.5dvw;
     background-color: transparent;
-    color: palevioletred;
+    color: #a675a1;
+    font-size: medium;
 }
 
 .menu-btn:hover {
     cursor: pointer;
     border: 0px;
-    color: white;
+    color: #8f3985;
 }
 
 #menu-cart-btn {
     border-radius: 0.3dvw;
-    background-color: rgb(135, 0, 195);
+    background-color: #a675a1;
     color: white;
     padding: 0.7dvh;
     padding-inline: 2dvw;
-    font-weight: 500;
+    font-weight: 200;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -39,13 +40,14 @@ app-menu {
 }
 
 #menu-cart-btn:hover {
-    background-color: rgb(166, 62, 210);
+    background-color: #8f3985;
 }
 
 #header-title {
-    color: rgb(216, 112, 147);
-    font-weight: 200;
+    color: #a675a1;
+    font-weight: 100;
     margin: 0px;
+    font-size: x-large;
 }
 
 #header-title:hover {
@@ -59,8 +61,14 @@ mat-sidenav {
 
 .mat-toolbar {
     /*background-color: rgb(253, 214, 245);*/
-    background-color:#f2d7e8;
-    box-shadow: grey 0px 0px 0.2dvh;
+    background-color:#efd9ce;
+    box-shadow: grey 0px 0px 0.5dvh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: min-content;
+    padding-block: 1dvh;
 
 }
 
@@ -69,8 +77,7 @@ mat-progress-bar {
     z-index: 99999;
     top: 0;
     width: 100%;
-    background-color: rgba(196, 161, 189, 0.2);
-    color:rgb(255, 43, 213);
+    background-color: rgba(196, 161, 189, 0.15);
 }
 
 mat-toolbar {

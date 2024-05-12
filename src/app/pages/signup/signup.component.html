@@ -1,5 +1,6 @@
 <button (click)="goBack()" class="back-btn"><mat-icon>arrow_back_ios</mat-icon>  Vissza</button>
 
+<div class="page-sizer">
 <div class="login-wrapper">
     <div class="login-container">
         <h1>Regisztráció</h1>
@@ -8,7 +9,8 @@
             <mat-form-field><mat-label for="password">Jelszó: </mat-label><input matInput type="password" name="password" formControlName="password"></mat-form-field>
             <mat-form-field><mat-label for="rePassword">Jelszó megerősítése: </mat-label><input matInput type="password" name="rePassword" formControlName="rePassword"></mat-form-field>
             <mat-slide-toggle formControlName="role" color="primary">Admin szerepkör</mat-slide-toggle>
-            <button mat-raised-button type="submit" color="primary">REGISZTRÁLOK</button>
+            <button mat-raised-button type="submit" color="primary" id="reg-btn">REGISZTRÁLOK</button>
         </form>
     </div>
+</div>
 </div>

@@ -27,3 +27,7 @@
 mat-form-field {
     width: 40dvw;
 }
+
+#reg-btn {
+    background-color: #a675a1;
+}

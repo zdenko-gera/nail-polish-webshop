@@ -18,6 +18,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { MatCardModule } from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -37,7 +38,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatIconModule,
     MatCardModule,
     MatListModule,
-    AngularFireModule.initializeApp({"projectId":"mukorom-webshop","appId":"1:824035145873:web:1c23c41a71f0c66418a730","storageBucket":"mukorom-webshop.appspot.com","apiKey":"AIzaSyD6KJ1XXqUatjx925jr0PEH0cnjW1E37us","authDomain":"mukorom-webshop.firebaseapp.com","messagingSenderId":"824035145873"}),
+    FlexLayoutModule,
+    AngularFireModule.initializeApp({}),
     //provideFirebaseApp(() => initializeApp({"projectId":"mukorom-webshop","appId":"1:824035145873:web:1c23c41a71f0c66418a730","storageBucket":"mukorom-webshop.appspot.com","apiKey":"AIzaSyD6KJ1XXqUatjx925jr0PEH0cnjW1E37us","authDomain":"mukorom-webshop.firebaseapp.com","messagingSenderId":"824035145873"})),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

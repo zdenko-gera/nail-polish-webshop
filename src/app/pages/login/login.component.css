@@ -20,3 +20,7 @@
 mat-form-field {
     width: 40dvw;
 }
+
+#login-btn {
+    background-color: #a675a1;
+}

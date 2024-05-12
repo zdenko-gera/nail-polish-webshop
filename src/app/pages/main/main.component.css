@@ -6,10 +6,10 @@
     position: absolute;
     top: 15dvh;
     left: 12dvw;
-    font-weight: 200;
+    font-weight: 100;
     font-size: 4dvw;
     color: rgb(135, 0, 195);
-    background: -webkit-linear-gradient(rgb(179, 0, 255), rgb(255, 0, 183));
+    background: -webkit-linear-gradient(#8f3985, #a675a1);
     background-clip: border-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -50,12 +50,6 @@ h2 {
     text-wrap: wrap;
 }
 
-.product-container:hover {
-    box-shadow: none;
-    border: 1px solid rgb(135, 0, 195);
-    cursor: pointer;
-}
-
 .product-image {
     min-width: 14dvw;
     width: 14dvw;
@@ -64,13 +58,17 @@ h2 {
 }
 
 .add-to-cart-btn {
-    background-color: rgb(135, 0, 195);
+    background-color: #a675a1;
     color: white;
     border: 0;
     border-radius: 0.5dvh;
     padding: 1dvh;
     font-weight: 500;
     cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #8f3985;
 }
 
 h3 {

@@ -3,7 +3,6 @@
 <app-contact></app-contact>-->
 <mat-sidenav-container>
     <mat-sidenav #sidenav class="top_bar">
-        <app-menu (onCloseSidenav)="closeSidenav($event, sidenav)" [loggedInUser]="loggedInUser" (onLogout)="logout($event)"></app-menu>
     </mat-sidenav>
     <mat-sidenav-content>
         <mat-toolbar>
@@ -12,17 +11,17 @@
             </button>
             <h1 id="header-title" [routerLink]="'/main'">Shiny Nails</h1>
             <div id="menubar">
-                <button [routerLink]="'/main'" class="menu-btn" fxHide.sm fxHide.xs>KEZDŐLAP</button>
-                <button [routerLink]="'/add-product'" class="menu-btn" fxHide.sm fxHide.xs *ngIf="(loggedInUser)">TERMÉKFELTÖLTÉS</button>
-                <button [routerLink]="'/stores'"class="menu-btn" fxHide.sm fxHide.xs>ÜZLETEINK</button>
-                <button [routerLink]="'/contact'"class="menu-btn" fxHide.sm fxHide.xs>KAPCSOLAT</button>
-                <button [routerLink]="'/login'" class="menu-btn" fxHide.sm fxHide.xs *ngIf="!(loggedInUser)">BEJELENTKEZÉS</button>
-                <button [routerLink]="'/signup'" class="menu-btn" fxHide.sm fxHide.xs *ngIf="!(loggedInUser)">REGISZTRÁCIÓ</button>
-                <button [routerLink]="'/login'" class="menu-btn" fxHide.sm fxHide.xs (click)="logout()" *ngIf="(loggedInUser)">KIJELENTKEZÉS</button>
+                <button [routerLink]="'/main'" class="menu-btn" fxHide.sm fxHide.xs>Bolt</button>
+                <button [routerLink]="'/add-product'" class="menu-btn" fxHide.sm fxHide.xs *ngIf="(loggedInUser)">Termékfeltöltés</button>
+                <button [routerLink]="'/stores'"class="menu-btn" fxHide.sm fxHide.xs>Üzleteink</button>
+                <button [routerLink]="'/contact'"class="menu-btn" fxHide.sm fxHide.xs>Kapcsolat</button>
+                <button [routerLink]="'/login'" class="menu-btn" fxHide.sm fxHide.xs *ngIf="!(loggedInUser)">Bejelentkezés</button>
+                <button [routerLink]="'/signup'" class="menu-btn" fxHide.sm fxHide.xs *ngIf="!(loggedInUser)">Regisztráció</button>
+                <button [routerLink]="'/login'" class="menu-btn" fxHide.sm fxHide.xs (click)="logout()" *ngIf="(loggedInUser)">Kijelentkezés</button>
                 <button [routerLink]="'/cart'"class="menu-btn" id="menu-cart-btn" mat-button matTooltip="Kosaram tartalma"><mat-icon>shopping_cart</mat-icon><span fxHide.sm fxHide.xs>KOSÁR</span><!-- ({{ cntOfItemsInCart }})--></button>
             </div>
         </mat-toolbar>
-        <mat-progress-bar mode="determinate" value="{{scrollPercentage}}"></mat-progress-bar>
+        <mat-progress-bar mode="determinate" value="{{scrollPercentage}}" color="primary"></mat-progress-bar>
 
         <router-outlet></router-outlet>
         <app-footer></app-footer>

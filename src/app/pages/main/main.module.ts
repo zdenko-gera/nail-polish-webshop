@@ -7,11 +7,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import {MatCard, MatCardModule} from '@angular/material/card';
 import { MatDivider, MatDividerModule } from '@angular/material/divider';
+import { ForintPipe } from '../../shared/pipes/forint.pipe';
 
 
 @NgModule({
   declarations: [
-    MainComponent
+    MainComponent,
+    ForintPipe,
   ],
   imports: [
     CommonModule,

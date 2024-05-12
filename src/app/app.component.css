@@ -6,7 +6,7 @@ app-menu {
 #menubar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     width: fit-content;
 }
@@ -71,4 +71,11 @@ mat-progress-bar {
     width: 100%;
     background-color: rgba(196, 161, 189, 0.2);
     color:rgb(255, 43, 213);
+}
+
+mat-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }

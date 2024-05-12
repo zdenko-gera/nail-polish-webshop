@@ -1,36 +1,17 @@
-<!--<div id="header-wrapper">
-<header>
-    <h1 id="header-title" [routerLink]="'/main'">Shiny Nails</h1>
-<select [(ngModel)]="currentPage" (change)="menuSwitch()" id="menubar-select">
-    <option value="main">Főoldal</option>
-    <option value="stores">Üzleteink</option>
-    <option value="contact">Kapcsolat</option>
-</select>
-<div id="menubar" >
-    <button [routerLink]="'/main'" class="menu-btn" fxHide.sm fxHide.xs>KEZDŐLAP</button>
-    <button [routerLink]="'/login'" class="menu-btn" fxHide.sm fxHide.xs>BEJELENTKEZÉS</button>
-    <button [routerLink]="'/signup'" class="menu-btn" fxHide.sm fxHide.xs>REGISZTRÁCIÓ</button>
-    <button [routerLink]="'/stores'"class="menu-btn" fxHide.sm fxHide.xs>ÜZLETEINK</button>
-    <button [routerLink]="'/contact'"class="menu-btn" fxHide.sm fxHide.xs>KAPCSOLAT</button>
-    <button [routerLink]="'/cart'"class="menu-btn" id="menu-cart-btn"><img src="../../../assets/static/cart-icon.png" alt="cart-icon" id="cart-btn-icon"><span fxHide.sm fxHide.xs>KOSÁR</span> (3)</button>
-</div>
-</header>
-<div id="divider-linear"></div>
-</div>-->
 <mat-nav-list>
-    <a mat-list-item routerLink="/main" (click)="close()">
+    <a mat-list-item routerLink="/main" (click)="close(false)">
         <mat-icon>home</mat-icon>
         <span> KEZDŐLAP</span>
     </a>
-    <a mat-list-item routerLink="/add-product" (click)="close()" *ngIf="(loggedInUser)">
+    <a mat-list-item routerLink="/add-product" (click)="close(false)" *ngIf="(loggedInUser)">
         <mat-icon>post_add</mat-icon>
         <span> TERMÉK HOZZÁADÁSA</span>
     </a>
-    <a mat-list-item routerLink="/stores" (click)="close()">
+    <a mat-list-item routerLink="/stores" (click)="close(false)">
         <mat-icon>storefront</mat-icon>
         <span> ÜZLETEINK</span>
     </a>
-    <a mat-list-item routerLink="/contact" (click)="close()">
+    <a mat-list-item routerLink="/contact" (click)="close(false)">
         <mat-icon>contact_support</mat-icon>
         <span> KAPCSOLAT</span>
     </a>
@@ -38,11 +19,11 @@
         <mat-icon>logout</mat-icon>
         <span> KIJELENTKEZÉS</span>
     </a>
-    <a mat-list-item routerLink="/signup" (click)="close()" *ngIf="!(loggedInUser)">
+    <a mat-list-item routerLink="/signup" (click)="close(false)" *ngIf="!(loggedInUser)">
         <mat-icon>person_add</mat-icon>
         <span> REGISZTRÁCIÓ</span>
     </a>
-    <a mat-list-item routerLink="/login" (click)="close()" *ngIf="!(loggedInUser)">
+    <a mat-list-item routerLink="/login" (click)="close(false)" *ngIf="!(loggedInUser)">
         <mat-icon>login</mat-icon>
         <span> BEJELENTKEZÉS</span>
     </a>

@@ -27,4 +27,7 @@ header {
     background: linear-gradient(90deg, rgb(179, 0, 255), rgb(255, 0, 183));
 }
 
+mat-nav-list, mat-nav-list * {
+    color: #25283d;
+}
 

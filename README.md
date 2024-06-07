@@ -6,7 +6,7 @@ A projektnek nem célja a teljeskörű webshop funkciók ellátása, az inkább 
 
 ***
 
-Elérhető itt: https://mukorom-webshop.web.app/
+Elérhető itt: ~~https://mukorom-webshop.web.app/~~
 
 ***
 

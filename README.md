@@ -1,13 +1,13 @@
-# Műköröm webshop
+# Nail polish webshop
 
-Angular keretrendszer használatával készített műköröm webshop. Firebase alapon.
+Nail polish webshop made in Angular framework, hosted on Firebase.
 
-A projektnek nem célja a teljeskörű webshop funkciók ellátása, az inkább demonstrációs munkának tudható be.
-
-***
-
-Elérhető itt: ~~https://mukorom-webshop.web.app/~~
+The project is more of a demonstrational work than a real webshop.
 
 ***
 
-*Készítette: Gera Zdenkó*
+Available here: ~~https://mukorom-webshop.web.app/~~
+
+***
+
+*Made by Zdenkó Gera*
